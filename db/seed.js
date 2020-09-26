@@ -28,7 +28,7 @@ connection.connect(function(err) {
     if (err) throw err;
     console.log('table guest created');
   });
-  connection.query(`CREATE TABLE site(id int NOT NULL AUTO_INCREMENT, siteName varchar(120), hostId int, description varchar(1000), location varchar(240), primary key(id), foreign key (hostId) references host(id))`,(err, result) => {
+  connection.query(`CREATE TABLE site(id int NOT NULL AUTO_INCREMENT, siteName varchar(120), hostId int, description varchar(1000), country varchar(60), state varchar(60), primary key(id), foreign key (hostId) references host(id))`,(err, result) => {
     if (err) throw err;
     console.log('table site created');
   });
@@ -46,7 +46,8 @@ connection.connect(function(err) {
     var siteName = faker.company.companyName();
     var description = faker.commerce.productDescription();
     var hostId = faker.random.number(99);
-    var location = {country: 'United States', state: `${faker.address.state()}`};
+    var country = 'United States';
+    var state = faker.address.state();
     var guestId = faker.random.number(99);
     var siteId = faker.random.number(99);
 
@@ -58,7 +59,7 @@ connection.connect(function(err) {
     connection.query(`INSERT INTO guest (guestName, avatar) values ("${guestName}", "${guestAvatar}")`, (err, result) => {
       if (err) throw err;
     });
-    connection.query(`INSERT INTO site (siteName, hostId, location, description) values ("${siteName}", "${counter}", "${location}", "${description}")`, (err, result) => {
+    connection.query(`INSERT INTO site (siteName, hostId, country, state, description) values ("${siteName}", "${counter}", "${country}", "${state}", "${description}")`, (err, result) => {
       if (err) throw err;
     });
     connection.query(`INSERT INTO guestRecommendSite (guestId, siteId) values ("${counter}", "${counter}")`, (err, result) => {
