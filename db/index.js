@@ -19,8 +19,8 @@ connection.connect(function(err) {
   });
 });
 
-var readSites = (callback) => {
-    connection.query('SELECT * from site', (err, result) => {
+var readSites = (siteId, callback) => {
+    connection.query(`select site.sitename, host.hostname, host.hostAvatar, site.description, site.country, site.state, guest.guestName, guest.guestAvatar  from site inner join host on (site.hostid = host.id) inner join guestrecommendsite on (site.id = guestrecommendsite.siteid) inner join guest on (guest.id = guestrecommendsite.guestid) where site.id = ${siteId};`, (err, result) => {
       if (err) callback(err);
       callback(null, result);
     })

@@ -5,10 +5,10 @@ const db = require('../db/index.js');
 
 app.use(express.static('./client/dist'));
 
-app.get('/api/sites', (req, res) => {
+app.get('/api/sites/:siteId', (req, res) => {
   console.log('receiving a get request');
-  debugger;
-  db.readSites((err, result) => {
+
+  db.readSites(req.params.siteId, (err, result) => {
     if (err) throw err;
     console.log('sending the results');
     res.send(result);

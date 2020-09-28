@@ -20,11 +20,11 @@ connection.connect(function(err) {
     console.log('created database tenthopCampsiteInfo');
   });
   connection.query('USE tenthopCampsiteInfo');
-  connection.query(`CREATE TABLE host(id int NOT NULL AUTO_INCREMENT, hostName varchar(40), avatar varchar(240), primary key(id) )`,(err, result) => {
+  connection.query(`CREATE TABLE host(id int NOT NULL AUTO_INCREMENT, hostName varchar(40), hostAvatar varchar(240), primary key(id) )`,(err, result) => {
     if (err) throw err;
     console.log('table host created');
   });
-  connection.query(`CREATE TABLE guest(id int NOT NULL AUTO_INCREMENT, guestName varchar(40), avatar varchar(240), primary key(id) )`,(err, result) => {
+  connection.query(`CREATE TABLE guest(id int NOT NULL AUTO_INCREMENT, guestName varchar(40), guestAvatar varchar(240), primary key(id) )`,(err, result) => {
     if (err) throw err;
     console.log('table guest created');
   });
@@ -53,10 +53,10 @@ connection.connect(function(err) {
 
 
 
-    connection.query(`INSERT INTO host (hostName, avatar) values ("${hostName}", "${hostAvatar}")`, (err, result) => {
+    connection.query(`INSERT INTO host (hostName, hostAvatar) values ("${hostName}", "${hostAvatar}")`, (err, result) => {
       if (err) throw err;
     });
-    connection.query(`INSERT INTO guest (guestName, avatar) values ("${guestName}", "${guestAvatar}")`, (err, result) => {
+    connection.query(`INSERT INTO guest (guestName, guestAvatar) values ("${guestName}", "${guestAvatar}")`, (err, result) => {
       if (err) throw err;
     });
     connection.query(`INSERT INTO site (siteName, hostId, country, state, description) values ("${siteName}", "${counter}", "${country}", "${state}", "${description}")`, (err, result) => {
