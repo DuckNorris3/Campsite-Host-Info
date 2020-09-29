@@ -64,9 +64,13 @@ var connection = mysql.createConnection({
     //   if (err) throw err;
     // });
 
-    for (var j = 1; j <= (i/8) + 1; j++) {
+    var min = 1;
+    for (var j = 1; j <= (i/4) + 1; j++) {
+    if (min - 10 > 0) {
+      min = min - 10;
+    }
     var guestId = Math.floor(Math.random() * (i - 1) + 1);
-    var siteId = Math.floor(Math.random() * (i - 1) + 1);
+    var siteId = Math.floor(Math.random() * (i - min) + min);
     var recommend = false;
     if (Math.random() <= .8) {
       recommend = true;
