@@ -8,7 +8,7 @@ var connection = mysql.createConnection({
 
 
 
-connection.connect(function(err) {
+  connection.connect(function(err) {
   if (err) throw err;
   console.log('Connected to mysql, but no db is selected yet');
   connection.query('DROP DATABASE IF EXISTS tenthopCampsiteInfo', (err, result) => {
@@ -33,12 +33,12 @@ connection.connect(function(err) {
     console.log('table site created');
   });
 
-  connection.query(`CREATE TABLE guestRecommendSite (guestId int, siteId int, foreign key (guestId) references guest(id), foreign key (siteId) references site(id) )`, (err, result) => {
+  connection.query(`CREATE TABLE guestRecommendSite (guestId int, siteId int, recommend boolean, foreign key (guestId) references guest(id), foreign key (siteId) references site(id) )`, (err, result) => {
     if (err) throw err;
     console.log('table guestRecommendSite created');
   });
-  var counter = 1;
-  for (let i = 0; i < 100; i++ ) {
+
+  for (let i = 1; i <= 100; i++ ) {
     var hostName = faker.name.findName();
     var hostAvatar = faker.internet.avatar();
     var guestName = faker.name.findName();
@@ -48,10 +48,8 @@ connection.connect(function(err) {
     var hostId = faker.random.number(99);
     var country = 'United States';
     var state = faker.address.state();
-    var guestId = faker.random.number(99);
-    var siteId = faker.random.number(99);
-
-
+    // var guestId = faker.random.number(i);
+    // var siteId = faker.random.number(i);
 
     connection.query(`INSERT INTO host (hostName, hostAvatar) values ("${hostName}", "${hostAvatar}")`, (err, result) => {
       if (err) throw err;
@@ -59,17 +57,34 @@ connection.connect(function(err) {
     connection.query(`INSERT INTO guest (guestName, guestAvatar) values ("${guestName}", "${guestAvatar}")`, (err, result) => {
       if (err) throw err;
     });
-    connection.query(`INSERT INTO site (siteName, hostId, country, state, description) values ("${siteName}", "${counter}", "${country}", "${state}", "${description}")`, (err, result) => {
+    connection.query(`INSERT INTO site (siteName, hostId, country, state, description) values ("${siteName}", "${i}", "${country}", "${state}", "${description}")`, (err, result) => {
       if (err) throw err;
     });
-    connection.query(`INSERT INTO guestRecommendSite (guestId, siteId) values ("${counter}", "${counter}")`, (err, result) => {
-      if (err) throw err;
-    });
-    counter++;
+    // connection.query(`INSERT INTO guestRecommendSite (guestId, siteId) values ("${i}", "${i}")`, (err, result) => {
+    //   if (err) throw err;
+    // });
+
+    var min = 1;
+    for (var j = 1; j <= (i/4) + 1; j++) {
+    if (min - 10 > 0) {
+      min = min - 10;
+    }
+    var guestId = Math.floor(Math.random() * (i - 1) + 1);
+    var siteId = Math.floor(Math.random() * (i - min) + min);
+    var recommend = false;
+    if (Math.random() <= .8) {
+      recommend = true;
+    }
+      connection.query(`INSERT INTO guestRecommendSite (guestId, siteId, recommend) values ("${guestId}", "${siteId}", ${recommend})`, (err, result) => {
+        if (err) throw err;
+      });
+    }
   }
 
   connection.end();
 })
+
+
 
 
 
