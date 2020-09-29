@@ -44,7 +44,7 @@ connection.connect(function(err) {
     var guestName = faker.name.findName();
     var guestAvatar = faker.internet.avatar();
     var siteName = faker.company.companyName();
-    var description = faker.commerce.productDescription();
+    var description = faker.lorem.paragraphs();
     var hostId = faker.random.number(99);
     var country = 'United States';
     var state = faker.address.state();
