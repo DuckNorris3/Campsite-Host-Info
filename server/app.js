@@ -35,15 +35,5 @@ app.get('*', (req, res) => {
   res.sendFile('index.html', {root:'./client/dist/'});
 })
 
-let server;
-
-// const start = () => (server = app.listen(PORT, () => {
-//   console.log(`Server is running on ${PORT}`);
-// }));
-
-const close = server ? server.close : () => {};
-
-// start();
-
 
 module.exports = app;
