@@ -28,7 +28,7 @@ function App() {
   useEffect(() => {
     axios(`/api/sites/${siteId}`)
       .then((response) => {
-        console.log('requeesting data from server');
+        console.log('requesting data from server');
         setSite(response.data[0])
       })
       .then(() => {

@@ -8,7 +8,7 @@ const Recommend = (props) => {
       <table>
         <tr>
           <td>guest Name</td>
-          <td> gueset Avatar</td>
+          <td> guest Avatar</td>
           <td>recommended</td>
         </tr>
         {props.recommendList.map((guest) => {
