@@ -21,7 +21,7 @@ import Location from './Location.jsx';
 function App() {
 
   const [site, setSite] = useState(null);
-  const dog = 'toby';
+
   let { siteId } = useParams();
   const [recommendList, setRecommendList] = useState([]);
 
