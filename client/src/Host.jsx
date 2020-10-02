@@ -8,7 +8,7 @@ const Host = ({ site }) => (
   <HostContainer>
     <img style={{ height: '98px', width: '98px', borderRadius: '50%' }} src={site.hostAvatar} alt="Host Avatar" />
     <HostName>
-      <div>Hosted By</div>
+      <strong>Hosted By</strong>
       <div>{site.hostName}</div>
     </HostName>
   </HostContainer>
