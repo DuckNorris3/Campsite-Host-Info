@@ -29,6 +29,20 @@ const Recommend = ({ recommendList }) => {
 
   const recommendPercentage = ((recommendCount / recommendList.length) * 100).toFixed(0);
 
+  let pill;
+  if (recommendCount > 4) {
+    pill = (
+      <Pill>
+        +
+        {recommendCount - 1}
+      </Pill>
+    );
+  } else {
+    pill = (
+      <div> </div>
+    );
+  }
+
   let recommendGuest;
 
   if (recommendCount === 0) {
@@ -52,13 +66,11 @@ const Recommend = ({ recommendList }) => {
             ))}
           </GuestAvatar>
         </GuestIcons>
-        <Pill>
-          +
-          {recommendCount - 1}
-        </Pill>
+        {pill}
       </LeftCTA>
     );
   }
+
   return (
 
     <CTAContainer>
