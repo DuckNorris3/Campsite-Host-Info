@@ -22,7 +22,7 @@ const CampSiteTitle = styled.h1`
   margin: 10px 0px;
 `;
 
-const RecommendedContainer = styled.div`
+const CTAContainer = styled.div`
   border: solid 2px green;
   margin 5px;
   display: flex;
@@ -126,6 +126,10 @@ const Pill = styled.div`
 `;
 
 const Button = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 3px;
   height: 48px;
   width: auto;
   padding: 6px 12px;
@@ -133,14 +137,18 @@ const Button = styled.button`
   transition: background-color 0.3s ease 0s, border-color 0.4s ease 0s, color 0.4s ease 0s;
 `;
 
-const RightRecommend = styled.div`
+const SaveButton = styled(Button)`
+  color: #ED746D;
+`;
+
+const RightCTA = styled.div`
   display: flex;
   justify-content: flex-end;
   border: lightgray 2px solid;
   margin 5px;
 `;
 
-const LeftRecommend = styled.div`
+const LeftCTA = styled.div`
   display: flex;
   justify-content: flex-start;
   border: lightblue 2px solid;
@@ -150,7 +158,7 @@ const LeftRecommend = styled.div`
 export {
   CampsiteHostInfoContainer,
   CampsiteDetailsContainer,
-  RecommendedContainer,
+  CTAContainer,
   RecommendText,
   GuestIcons,
   GuestAvatar,
@@ -164,6 +172,7 @@ export {
   LocationContainer,
   Pill,
   Button,
-  RightRecommend,
-  LeftRecommend,
+  SaveButton,
+  RightCTA,
+  LeftCTA,
 };
