@@ -1,14 +1,14 @@
+/* eslint-disable import/extensions */
 /* eslint-disable react/prop-types */
 import React from 'react';
+import { CampSiteTitle } from './styles.js';
 
 const SiteName = ({ site }) => {
   if (site) {
     return (
-      <div>
-        <h1>
-          { site.siteName }
-        </h1>
-      </div>
+      <CampSiteTitle>
+        { site.siteName }
+      </CampSiteTitle>
     );
   }
   return (
