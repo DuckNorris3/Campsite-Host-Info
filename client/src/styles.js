@@ -83,6 +83,7 @@ const CovidGuidelines = styled.div`
   padding: 15px;
   font: 18px Calibre;
   border: solid 2px black;
+  border-radius: 4px;
 `;
 
 const DescriptionText = styled.div`

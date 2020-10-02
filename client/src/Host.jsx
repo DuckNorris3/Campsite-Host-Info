@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/forbid-prop-types */
 import React from 'react';
 // eslint-disable-next-line import/extensions
 import { HostContainer, HostName } from './styles.js';

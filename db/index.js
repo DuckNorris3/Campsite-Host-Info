@@ -1,37 +1,39 @@
-var mysql = require('mysql');
-var connection = mysql.createConnection({
+/* eslint-disable no-console */
+const mysql = require('mysql');
+
+const connection = mysql.createConnection({
   host: 'localhost',
-  user: 'root'
+  user: 'root',
 });
 
-connection.connect(function(err) {
+connection.connect((err) => {
   if (err) {
     console.log('error connecting to database');
     throw err;
   }
-  console.log('connected to db')
-  connection.query('use tenthopCampsiteInfo', (err, result) => {
-    if (err) {
+  console.log('connected to db');
+  connection.query('use tenthopCampsiteInfo', (error) => {
+    if (error) {
       console.log('error connecting to tenthopCampsiteInfo');
-      throw err;
+      throw error;
     }
-    console.log('connected to tentHopCampsiteInfo')
+    console.log('connected to tentHopCampsiteInfo');
   });
 });
 
-var readSites = (siteId, callback) => {
-    connection.query(`select site.siteName, host.hostName, host.hostAvatar, site.description, site.country, site.state  from site inner join host on (site.hostid = host.id)  where site.id = ${siteId};`, (err, result) => {
-      if (err) callback(err);
-      callback(null, result);
-    })
-}
+const readSites = (siteId, callback) => {
+  connection.query(`select site.siteName, host.hostName, host.hostAvatar, site.description, site.country, site.state  from site inner join host on (site.hostid = host.id)  where site.id = ${siteId};`, (err, result) => {
+    if (err) callback(err);
+    callback(null, result);
+  });
+};
 
-var siteRecommend = (siteId, callback) => {
+const siteRecommend = (siteId, callback) => {
   connection.query(`select guest.guestName, guest.guestAvatar, guestrecommendsite.recommend   from site inner join guestrecommendsite on (site.id = guestrecommendsite.siteid) inner join guest on (guest.id = guestrecommendsite.guestid) where site.id = ${siteId} order by recommend desc;`, (err, result) => {
     if (err) callback(err);
     callback(null, result);
-    })
-}
+  });
+};
 
 module.exports.readSites = readSites;
 module.exports.siteRecommend = siteRecommend;

@@ -1,14 +1,14 @@
+/* eslint-disable no-undef */
+/* eslint-disable import/extensions */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App.jsx';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
-  useParams
 } from 'react-router-dom';
 
+import App from './App.jsx';
 
 ReactDOM.render(
 
@@ -18,7 +18,7 @@ ReactDOM.render(
         <App />
       </Route>
     </Switch>
-  </Router>
+  </Router>,
 
- ,document.getElementById('app')
- );
+  document.getElementById('app'),
+);

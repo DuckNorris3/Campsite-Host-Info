@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import {
   RecommendedContainer, RecommendText, GuestIcons, GuestAvatar,
@@ -14,7 +15,7 @@ const Recommend = ({ recommendList }) => {
 
   let recommendCount = 0;
   for (let i = 0; i < recommendList.length; i += 1) {
-    recommendCount += recommendList.recommend;
+    recommendCount += recommendList[i].recommend;
   }
 
   const recommendPercentage = ((recommendCount / recommendList.length) * 100).toFixed(0);
