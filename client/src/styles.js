@@ -154,6 +154,12 @@ const LeftCTA = styled.div`
   margin 5px;
 `;
 
+const NoRecommendations = styled.div`
+  width: 40%;
+  font-size: 12px;
+  font-weight: 300;
+`;
+
 export {
   CampsiteHostInfoContainer,
   CampsiteDetailsContainer,
@@ -174,4 +180,5 @@ export {
   SaveButton,
   RightCTA,
   LeftCTA,
+  NoRecommendations,
 };
