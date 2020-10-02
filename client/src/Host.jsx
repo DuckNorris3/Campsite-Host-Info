@@ -1,11 +1,15 @@
 import React from 'react';
+import {HostContainer, HostName} from './styles.js'
 
 const Host = (props) => {
   return (
-    <div>
-      <img src={props.site.hostAvatar}></img>
-      Hosted By {props.site.hostName}
-    </div>
+    <HostContainer>
+      <img style={{height: '98px', width: '98px', borderRadius: '50%'}}src={props.site.hostAvatar}></img>
+      <HostName>
+        <div>Hosted By</div>
+        <div>{props.site.hostName}</div>
+      </HostName>
+    </HostContainer>
   )
 }
 
