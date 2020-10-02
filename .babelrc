@@ -4,9 +4,18 @@
       "@babel/preset-env",
       {
         "targets": {
-          "esmodules": true
+          "node": "current"
         }
       }
-    ], "@babel/preset-react"],
-  "plugins": ["@babel/plugin-transform-runtime"]
+    ],
+    [
+     "@babel/preset-react",
+  {
+    "targets": {
+    "node": "current"
+    }
+  }
+    ]
+]
+
 }
