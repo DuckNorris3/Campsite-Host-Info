@@ -5,13 +5,13 @@ orbs:
   # Declare a dependency on the welcome-orb
   welcome: circleci/welcome-orb@0.4.1
 # Orchestrate or schedule a set of jobs
+jobs:
+  test:
+    steps:
+      - checkout
+      - run: npm test
+
 workflows:
-  # Name the workflow "welcome"
-  welcome:
-    # Run the welcome/run job in its own container
+  node test:
     jobs:
-      - welcome/run
-      build:
-        steps:
-          - checkout
-          - run: npm test
+      - test

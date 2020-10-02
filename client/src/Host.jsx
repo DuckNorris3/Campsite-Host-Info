@@ -1,16 +1,17 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/forbid-prop-types */
 import React from 'react';
-import {HostContainer, HostName} from './styles.js'
+// eslint-disable-next-line import/extensions
+import { HostContainer, HostName } from './styles.js';
 
-const Host = (props) => {
-  return (
-    <HostContainer>
-      <img style={{height: '98px', width: '98px', borderRadius: '50%'}}src={props.site.hostAvatar}></img>
-      <HostName>
-        <div>Hosted By</div>
-        <div>{props.site.hostName}</div>
-      </HostName>
-    </HostContainer>
-  )
-}
+const Host = ({ site }) => (
+  <HostContainer>
+    <img style={{ height: '98px', width: '98px', borderRadius: '50%' }} src={site.hostAvatar} alt="Host Avatar" />
+    <HostName>
+      <div>Hosted By</div>
+      <div>{site.hostName}</div>
+    </HostName>
+  </HostContainer>
+);
 
 export default Host;
