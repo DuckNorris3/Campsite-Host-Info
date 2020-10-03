@@ -44,7 +44,10 @@ const GuestIcons = styled.div`
   margin: 5px;
   height: 40px;
   width: 130px;
-  margin-right: -20px;
+  margin-right: -10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
 `;
 
 const GuestAvatar = styled.div`
@@ -118,12 +121,13 @@ const Pill = styled.div`
   border solid 2px #ebebeb;
   border-radius: 500px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.08);
-  margin-right: -11px;
+  margin-right: -5px;
   background-color: #fff;
   padding: 2px;
   display: flex;
   justify-content: space-around;
   align-self: center;
+  cursor: pointer;
 `;
 
 const Button = styled.button`
@@ -137,6 +141,12 @@ const Button = styled.button`
   border: 1px solid #ebebeb;
   border-radius: 2px;
   background-color: transparent;
+  transition: border 0.4s ease;
+  cursor: pointer;
+
+  &:hover {
+    border: 1px solid #BEBEBE;
+  }
 `;
 
 const SaveButton = styled(Button)`
