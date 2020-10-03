@@ -58,7 +58,7 @@ const Recommend = ({ recommendList }) => {
             % Recommend
           </RecommendText>
         </span>
-        <ReactToolTip id="recommendTooltip" place="bottom" effect="solid">
+        <ReactToolTip id="recommendTooltip" place="bottom" effect="solid" backgroundColor="black">
           This recommendation is based
           <br />
           {' '}
@@ -79,7 +79,7 @@ const Recommend = ({ recommendList }) => {
               <GuestAvatar>
 
                 <img data-tip data-for={firstName} style={avatarStyle} src={guest.guestAvatar} alt="Guest Avatar" />
-                <ReactToolTip id={firstName} place="top" effect="solid">{firstName}</ReactToolTip>
+                <ReactToolTip id={firstName} place="top" effect="solid" backgroundColor="black">{firstName}</ReactToolTip>
               </GuestAvatar>
             );
           })}
