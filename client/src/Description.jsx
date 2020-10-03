@@ -8,9 +8,7 @@ const Description = ({ site }) => {
   const nameArray = site.hostName.split(' ');
   const firstName = nameArray[0];
 
-  let covid = (
-    <div> </div>
-  );
+  let covid;
 
   if (site.covid === 1) {
     covid = (

@@ -21,6 +21,7 @@ const CampSiteTitle = styled.h1`
   font-weight: 500;
   font-size: 36px;
   margin: 10px 0px;
+  display: flex;
 `;
 
 const CTAContainer = styled.div`
