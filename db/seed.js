@@ -20,7 +20,7 @@ connection.connect((err) => {
     console.log('created database tenthopCampsiteInfo');
   });
   connection.query('USE tenthopCampsiteInfo');
-  connection.query('CREATE TABLE host(id int NOT NULL AUTO_INCREMENT, hostName varchar(40), hostAvatar varchar(240), primary key(id) )', (error) => {
+  connection.query('CREATE TABLE host(id int NOT NULL AUTO_INCREMENT, hostName varchar(40), hostAvatar varchar(240), starHost boolean, primary key(id) )', (error) => {
     if (error) throw error;
     console.log('table host created');
   });
@@ -55,8 +55,12 @@ connection.connect((err) => {
     if (Math.random() <= 0.8) {
       verified = true;
     }
+    let starHost = false;
+    if (Math.random() <= 0.8) {
+      starHost = true;
+    }
 
-    connection.query(`INSERT INTO host (hostName, hostAvatar) values ("${hostName}", "${hostAvatar}")`, (error) => {
+    connection.query(`INSERT INTO host (hostName, hostAvatar, starHost) values ("${hostName}", "${hostAvatar}", ${starHost})`, (error) => {
       if (error) throw error;
     });
     connection.query(`INSERT INTO guest (guestName, guestAvatar) values ("${guestName}", "${guestAvatar}")`, (error) => {
