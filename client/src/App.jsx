@@ -38,7 +38,7 @@ function App() {
         <CampsiteDetailsContainer>
           <Location site={site} />
           <SiteName site={site} />
-          <Nearby />
+          <Nearby site={site} />
           <Recommend recommendList={recommendList} />
         </CampsiteDetailsContainer>
         <OverviewContainer>

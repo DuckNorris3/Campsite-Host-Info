@@ -1,8 +1,11 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 
-const Nearby = () => (
+const Nearby = ({ site }) => (
   <div>
-    Nearby: Cedar Hill State Park
+    Nearby:
+    {' '}
+    {site.nearby}
   </div>
 );
 
