@@ -51,6 +51,7 @@ function App() {
   return (
     <div>
       Loading site...
+      {siteId}
     </div>
   );
 }

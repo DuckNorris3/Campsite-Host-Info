@@ -36,7 +36,7 @@ const SiteName = ({ site }) => {
 
   if (site) {
     return (
-      <CampSiteTitle>
+      <CampSiteTitle data-testid="siteNameTest">
         { site.siteName }
         { tentHopVerified }
       </CampSiteTitle>

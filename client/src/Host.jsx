@@ -16,7 +16,7 @@ const Host = ({ site }) => {
           <title>test</title>
         </svg>
 
-        <ReactTooltip id="starHost" place="right" effect="solid" backgroundColor="black" multiline="true" type="dark">
+        <ReactTooltip id="starHost" place="right" effect="solid" backgroundColor="black" type="dark">
           Star hosts represent the top tier
           <br />
           {' '}

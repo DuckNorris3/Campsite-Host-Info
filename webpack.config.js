@@ -1,11 +1,10 @@
 const path = require('path');
-const webpack = require('webpack');
 
 module.exports = {
   entry: './client/src/index.jsx',
   output: {
     path: path.join(__dirname, './client/dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   module: {
     rules: [
@@ -13,11 +12,14 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower_components)/,
         use: {
-          loader: 'babel-loader'
+          loader: 'babel-loader',
 
-        }
-      }
-    ]
-  }
+        },
+      },
+    ],
+  },
+  // resolve: {
+  //   extensions: ['*', ',.js', '.jsx'],
+  // },
 
 };
