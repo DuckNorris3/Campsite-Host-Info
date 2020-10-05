@@ -24,7 +24,7 @@ connection.connect((err) => {
 const readSites = (siteId, callback) => {
   connection.query(`select site.siteName, host.hostName, host.hostAvatar, host.starHost, site.description, site.country, site.state, site.covid, site.verified, site.nearby from site inner join host on (site.hostid = host.id)  where site.id = ${siteId};`, (err, result) => {
     if (err) callback(err);
-    callback(null, result);
+    else callback(null, result);
   });
 };
 

@@ -24,7 +24,7 @@ const Description = ({ site }) => {
   }
   return (
     <DescriptionContainer>
-      {covid}
+      { covid }
       <DescriptionText>
         { site.description }
       </DescriptionText>
