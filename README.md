@@ -24,6 +24,9 @@
 - npm run seed: seed's database (assumes your MySQL username is root and has no password)
 - npm start: start's local server for module
 
+Uses react-router for client side routing, to visit a certain page you have to indicate the site id in the URL
+  localhost:3003/1
+
 
 ## Development
 
