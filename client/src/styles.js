@@ -4,8 +4,8 @@ const CampsiteHostInfoContainer = styled.div`
   display: flex;
   font-family: Calibre, Helvetica, Arial, sans-serif;
   flex-direction: column;
-  margin-left: 10%;
-  margin-right: 30%;
+  margin-left: 35%;
+  margin-right: 0.5em;
 
   color: #333333;
   line-height: 1.42;
