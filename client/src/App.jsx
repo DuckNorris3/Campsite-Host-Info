@@ -18,14 +18,14 @@ function App() {
   const [recommendList, setRecommendList] = useState([]);
 
   useEffect(() => {
-    axios(`/api/sites/${siteId}`)
+    axios(`http://localhost:3003/api/sites/${siteId}`)
       .then((response) => {
         // eslint-disable-next-line no-console
         console.log('requesting data from server');
         setSite(response.data[0]);
       })
       .then(() => {
-        axios(`/api/sites/${siteId}/recommend`)
+        axios(`http://localhost:3003/api/sites/${siteId}/recommend`)
           .then((response) => {
             setRecommendList(response.data);
           });
