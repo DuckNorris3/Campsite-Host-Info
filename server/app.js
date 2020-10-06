@@ -1,9 +1,11 @@
 /* eslint-disable no-console */
 const express = require('express');
+const cors = require('cors');
 
 const app = express();
 const db = require('../db/index.js');
 
+app.use(cors());
 app.use(express.static('./client/dist'));
 
 app.get('/i', (req, res) => {
