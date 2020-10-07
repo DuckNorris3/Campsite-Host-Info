@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import Loading from 'react-loading-animation';
 
 import SiteName from './SiteName.jsx';
 import Nearby from './Nearby.jsx';
@@ -50,8 +51,7 @@ function App() {
   }
   return (
     <div>
-      Loading site...
-      {siteId}
+      <Loading />
     </div>
   );
 }
