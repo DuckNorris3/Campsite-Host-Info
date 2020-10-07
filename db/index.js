@@ -8,14 +8,12 @@ const connection = mysql.createConnection({
 
 connection.connect((err) => {
   if (err) {
-    console.log('error connecting to database');
-    throw err;
+    console.error('error connecting to database', err);
   }
   console.log('connected to db');
   connection.query('use tenthopCampsiteInfo', (error) => {
     if (error) {
-      console.log('error connecting to tenthopCampsiteInfo');
-      throw error;
+      console.error('error connecting to tenthopCampsiteInfo', err);
     }
     console.log('connected to tentHopCampsiteInfo');
   });
@@ -31,7 +29,7 @@ const readSites = (siteId, callback) => {
 const siteRecommend = (siteId, callback) => {
   connection.query(`select guest.guestName, guest.guestAvatar, guestrecommendsite.recommend   from site inner join guestrecommendsite on (site.id = guestrecommendsite.siteid) inner join guest on (guest.id = guestrecommendsite.guestid) where site.id = ${siteId} order by recommend desc;`, (err, result) => {
     if (err) callback(err);
-    callback(null, result);
+    else callback(null, result);
   });
 };
 
