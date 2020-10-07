@@ -9,11 +9,13 @@ const connection = mysql.createConnection({
 connection.connect((err) => {
   if (err) {
     console.error('error connecting to database', err);
+    return;
   }
   console.log('connected to db');
   connection.query('use tenthopCampsiteInfo', (error) => {
     if (error) {
       console.error('error connecting to tenthopCampsiteInfo', err);
+      return;
     }
     console.log('connected to tentHopCampsiteInfo');
   });
