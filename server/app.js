@@ -16,7 +16,11 @@ app.get('/api/sites/:siteId', (req, res) => {
   console.log('receiving a get request');
 
   db.readSites(req.params.siteId, (err, result) => {
-    if (err) throw err;
+    if (err) {
+      console.error('error occurred when receiving querying with site id:', req.params.siteId, err);
+      res.status(404).send("Sorry can't find what you are looking for.");
+      return;
+    }
     console.log('sending the results');
     res.send(result);
   });
@@ -26,7 +30,11 @@ app.get('/api/sites/:siteId/recommend', (req, res) => {
   console.log(`receiving a get request for recommendations for site: ${req.params.siteId}`);
 
   db.siteRecommend(req.params.siteId, (err, result) => {
-    if (err) throw err;
+    if (err) {
+      console.error('error occurred when receiving querying for recommended with site id:', req.params.siteId, err);
+      res.status(404).send("Sorry can't find what you are looking for.");
+      return;
+    }
     console.log('sending the results');
     res.send(result);
   });
