@@ -2,10 +2,13 @@
 const mysql = require('mysql');
 // eslint-disable-next-line import/no-extraneous-dependencies
 const faker = require('faker');
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
+  host: process.env.MYSQL_HOST,
+  user: process.env.MYSQL_USER,
 });
 
 connection.connect((err) => {
