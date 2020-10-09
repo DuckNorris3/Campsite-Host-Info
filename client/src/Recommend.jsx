@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ReactToolTip from 'react-tooltip';
 import { usePopper } from 'react-popper';
 import {
@@ -54,6 +54,22 @@ const Recommend = ({ recommendList }) => {
       ],
     },
   );
+
+  function handleDocumentClick(event) {
+    if (buttonRef.current.contains(event.target)) {
+      return;
+    }
+    setShowPopper(false);
+  }
+
+  useEffect(() => {
+    // eslint-disable-next-line no-undef
+    document.addEventListener('mousedown', handleDocumentClick);
+    return () => {
+      // eslint-disable-next-line no-undef
+      document.removeEventListener('mousedown', handleDocumentClick);
+    };
+  }, []);
 
   let recommendCount = 0;
   for (let i = 0; i < recommendList.length; i += 1) {
