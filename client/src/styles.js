@@ -200,7 +200,7 @@ const PopperContainer = styled.div`
       background-color: white;
       box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
       position: absolute;
-      top: -25px;
+      top: -35px;
       left: 0;
       transform: rotate(45deg);
       width: 10px;
@@ -208,8 +208,8 @@ const PopperContainer = styled.div`
     }
   }
 
-  &[data-popper-placement^='bottom'] > #arrow {
-    bottom -25px;
+  &[data-popper-placement^='top'] > #arrow {
+    bottom -40px;
     :after {
       box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
     }
@@ -235,7 +235,6 @@ const SocialContainer = styled.div`
   align-items: center;
   margin 15px 10px;
 `;
-
 
 export {
   CampsiteHostInfoContainer,
