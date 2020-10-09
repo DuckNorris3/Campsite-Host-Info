@@ -234,6 +234,7 @@ const SocialContainer = styled.div`
   flex-direction: row;
   align-items: center;
   margin 15px 10px;
+  cursor: pointer;
 `;
 
 export {
