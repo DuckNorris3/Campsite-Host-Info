@@ -149,6 +149,12 @@ const Button = styled.button`
   }
 `;
 
+const ShareButton = styled(Button)`
+  width: 100%;
+  margin: 5px;
+  justify-content: center;
+`;
+
 const SaveButton = styled(Button)`
   color: #ED746D;
 `;
@@ -169,6 +175,66 @@ const NoRecommendations = styled.div`
   width: 40%;
   font-size: 12px;
   font-weight: 300;
+`;
+
+const PopperContainer = styled.div`
+  height: 400px;
+  width: 300px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  background-color: white;
+  padding: 30px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  z-index: 999;
+
+  #arrow {
+    position absolute;
+    width: 10px;
+    height: 10px;
+    &:after {
+      content: " ";
+      background-color: white;
+      box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+      position: absolute;
+      top: -35px;
+      left: 0;
+      transform: rotate(45deg);
+      width: 10px;
+      height: 10px;
+    }
+  }
+
+  &[data-popper-placement^='top'] > #arrow {
+    bottom -40px;
+    :after {
+      box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+    }
+  }
+`;
+
+const ShareHeader = styled.div`
+  font-size: 20px;
+  font-weight: 650;
+  margin: 0 10px 0 10px;
+  width: 100%;
+  align-self: flex-start;
+  text-align: left;
+  margin: 5px;
+`;
+
+const SocialContainer = styled.div`
+  font-size: 14px;
+  font-weight: 300;
+  width: 40%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin 15px 10px;
+  cursor: pointer;
 `;
 
 export {
@@ -192,4 +258,8 @@ export {
   RightCTA,
   LeftCTA,
   NoRecommendations,
+  PopperContainer,
+  ShareHeader,
+  SocialContainer,
+  ShareButton,
 };
