@@ -32,7 +32,7 @@ const readSites = (siteId, callback) => {
 };
 
 const siteRecommend = (siteId, callback) => {
-  connection.query(`select guest.guestName, guest.guestAvatar, guestrecommendsite.recommend   from site inner join guestrecommendsite on (site.id = guestrecommendsite.siteid) inner join guest on (guest.id = guestrecommendsite.guestid) where site.id = ${siteId} order by recommend desc;`, (err, result) => {
+  connection.query(`select guest.guestName, guest.guestAvatar, guestRecommendSite.recommend   from site inner join guestRecommendSite on (site.id = guestRecommendSite.siteId) inner join guest on (guest.id = guestRecommendSite.guestId) where site.id = ${siteId} order by recommend desc;`, (err, result) => {
     if (err) callback(err);
     else callback(null, result);
   });
