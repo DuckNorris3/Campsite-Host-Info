@@ -19,14 +19,14 @@ function App() {
   const [recommendList, setRecommendList] = useState([]);
 
   useEffect(() => {
-    axios(`http://ec2-54-166-211-132.compute-1.amazonaws.com/api/sites/${siteId}`)
+    axios(`http://ec2-54-166-211-132.compute-1.amazonaws.com:8080/api/sites/${siteId}`)
       .then((response) => {
         // eslint-disable-next-line no-console
         console.log('requesting data from server');
         setSite(response.data[0]);
       })
       .then(() => {
-        axios(`http://ec2-54-166-211-132.compute-1.amazonaws.com/api/sites/${siteId}/recommend`)
+        axios(`http://ec2-54-166-211-132.compute-1.amazonaws.com:8080/api/sites/${siteId}/recommend`)
           .then((response) => {
             setRecommendList(response.data);
           });
